@@ -139,14 +139,6 @@ a:active {
     list-style-type: none;
 }
 
-#test:hover{
-    width: 50%;
-    height: 50%;
-    -moz-box-shadow: 0 0 50px black;
-    -webkit-box-shadow: 0 0 50px black;
-    box-shadow: 0 0 50px black;
-}
-
 .container {
     margin-top: 30px;
 }
