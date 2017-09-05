@@ -123,12 +123,16 @@ a:link {
     color: white;
 }
 
-a:hover{
+a:hover {
     color:white;
 }
 
 a:visited {
     color: white;
+}
+
+a:active {
+    color:white;
 }
 
 #links {
