@@ -2,11 +2,10 @@ body {
     position: relative;
 }
 
-#projectLink{
+#projectLink {
     margin: 0 auto;
     text-align: center;
     display: block;
-    
 }
 
 #title {
@@ -39,7 +38,7 @@ body {
     margin-right: 75px;
 }
 
-#resume:hover{
+#resume:hover {
     width: 25%;
     height: 25%;
     -moz-box-shadow: 0 0 50px black;
@@ -130,16 +129,16 @@ a:link {
     color: white;
 }
 
-a:hover{
-    color:white;
+a:hover {
+    color: white;
 }
 
 a:visited {
     color: white;
 }
 
-a:active{
-    color:white;
+a:active {
+    color: white;
 }
 
 #links {
