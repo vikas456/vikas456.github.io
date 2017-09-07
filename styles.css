@@ -19,6 +19,8 @@ body {
 
 #aboutTxt {
     margin-top: 20px;
+    max-height: 50vh;
+    overflow: hidden;
 }
 
 #profImage {
@@ -74,7 +76,7 @@ body {
 
 #section1 {
     padding-top: 50px;
-    height: 750px;
+    height: 100vh;
     color: #fff;
     background-color: #586BBF;
 }
@@ -91,7 +93,7 @@ body {
 
 #section2 {
     padding-top: 50px;
-    height: 500px;
+    height: 100vh;
     color: #fff;
     background-color: #673ab7;
 }
@@ -105,21 +107,21 @@ body {
 
 #section3 {
     padding-top: 50px;
-    height: 500px;
+    height: 100vh;
     color: #fff;
     background-color: #58BF79;
 }
 
 #section4 {
     padding-top: 50px;
-    height: 500px;
+    height: 100vh;
     color: #fff;
     background-color: #ff9800;
 }
 
 #section5 {
     padding-top: 50px;
-    height: 500px;
+    height: 100vh;
     color: #fff;
     background-color: #00bcd4;
     text-align: center;
