@@ -6,9 +6,14 @@ body {
     color: white;
 }
 
+#information{
+    max-height: 55vh;
+    overflow: hidden;
+}
+
 #section1 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: #394c9b;
 }
@@ -23,42 +28,42 @@ body {
 
 #section2 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: #673ab7;
 }
 
 #section3 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: #000000;
 }
 
 #section4 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: #ff9800;
 }
 
 #section5 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: crimson;
 }
 
 #section6 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: #1E88E5;
 }
 
 #section7 {
     padding-top: 50px;
-    height: 750px;
+    height: 120vh;
     color: #fff;
     background-color: #1d8947;
 }
