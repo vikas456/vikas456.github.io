@@ -1,0 +1,202 @@
+body {
+    position: relative;
+}
+
+#title {
+    text-align: center;
+    font-size: 50px;
+}
+
+#aboutTitle {
+    text-align: center;
+}
+
+#aboutTxt {
+    margin-top: 20px;
+}
+
+#profImage {
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+#profImage:hover {
+    width: 50%;
+    height: 50%;
+    -moz-box-shadow: 0 0 50px black;
+    -webkit-box-shadow: 0 0 50px black;
+    box-shadow: 0 0 50px black;
+}
+
+#resume {
+    margin-right: 75px;
+}
+
+#resume:hover{
+    width: 25%;
+    height: 25%;
+    -moz-box-shadow: 0 0 50px black;
+    -webkit-box-shadow: 0 0 50px black;
+    box-shadow: 0 0 50px black;
+}
+
+#resumeChoice {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#wrap {
+    width: 60%;
+}
+
+#leftCol {
+    float: left;
+    width: 50%;
+}
+
+#rightCol {
+    float: left;
+    width: 50%;
+}
+
+#skills {
+    margin-top: 30px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#section1 {
+    padding-top: 50px;
+    height: 750px;
+    color: #fff;
+    background-color: #586BBF;
+}
+
+#contentsOne {
+    width=50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-caption {
+    font-size: 30px;
+}
+
+#section2 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #673ab7;
+}
+
+#contentsTwo {
+    width=50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:
+}
+
+#section3 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #58BF79;
+}
+
+#section4 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #ff9800;
+}
+
+#section5 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #00bcd4;
+    text-align: center;
+}
+
+a:link {
+    color: white;
+}
+
+a:hover{
+    color:white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:active{
+    color:white;
+}
+
+#links {
+    list-style-type: none;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.carousel-inner>.item>img {
+    margin-left: auto;
+    margin-right: auto
+}
+
+#contentsOne {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-github {
+    background: #999999
+}
+
+#foot {
+    text-align: center;
+    width: 60%;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
