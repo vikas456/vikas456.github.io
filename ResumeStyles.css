@@ -1,0 +1,331 @@
+.title{
+    background-color: black;
+    width: 100%;
+    text-align: center;
+}
+
+a:link {
+    color: white;
+}
+
+a:hover{
+    color:white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:active{
+    color:white;
+}
+
+info {
+    width: 33%;
+    background-color: black;
+    display: inline-block;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+#infoFont{
+    color: white;
+}
+
+#logo{
+    width: 100px;
+    padding-right: 0px;
+    margin-right: 0px;
+    
+}
+
+#description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#major{
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    color: white;
+}
+
+#minor{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: white;
+}
+
+#experience{
+    text-align: center;
+    background-color: #F2F4F4;
+    padding-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#ciber{
+    background-color: #BFC9CA;
+    width: 20%;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20%;
+    margin-right: 0%;
+    height: 50px;
+    color: black;
+}
+
+#ciberInfo{
+    visibility: hidden;
+    width: 17%;
+    margin-left: 20%;
+    margin-right: 0%;
+    padding-left: 0%;
+    padding-right: 3%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    align-content: left;
+    text-align: left;
+    border-radius: 5%;
+    position: absolute;
+    top: 400px;
+}
+
+#utInfo{
+    visibility: hidden;
+    width: 17%;
+    margin-left: 50%;
+    margin-right: 0%;
+    padding-left: 0%;
+    padding-right: 3%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    align-content: left;
+    text-align: left;
+    border-radius: 5%;
+    position: absolute;
+    top: 430px;
+}
+
+#expTime{
+    background-color: black;
+    height: 3px;
+}
+
+#expYear{
+    margin-top: -10px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 3px;
+    margin-left: -60%;
+}
+
+#education{
+    text-align: center;
+    background-color: #F2F4F4;
+    padding-top: 0px;
+    margin-top: -10px;
+    padding-top: 10px;
+}
+
+#eduYear1{
+    margin-top: -10px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 3px;
+}
+
+#years{
+    word-spacing: 15em;
+}
+
+#ut{
+    background-color: #BFC9CA;
+    width: 40%;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 40%;
+    height: 50px;
+    color: black;
+}
+
+#skills{
+    text-align: center;
+    background-color: #212F3D;
+    padding-top: 10px;
+    color: white;
+}
+
+.skillSet{
+    width: 100%;
+    height: auto;
+}
+
+#circle_thin{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-color: white;
+    border-width: 1px;
+    border-bottom-color: white;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #000
+}
+
+#circle_mid{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-color: white;
+    border-width: 5px;
+    border-bottom-color: white;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #000
+}
+
+#circle_thick{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-color: white;
+    border-width: 10px;
+    border-bottom-color: white;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #000
+}
+
+.line{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#language{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.index{
+    width: 100%;
+    height: auto;
+    align-content: left;
+    text-align: left;
+    margin-left: 3%;
+}
+
+#info{
+    display:inline-block;
+    align-content: left;
+    margin-left: 0%;
+    margin-right: 5%;
+}
+
+#circle_thick_outline{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-color: white;
+    border-width: 10px;
+    border-bottom-color: white;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #212F3D
+}
+
+#circle_mid_outline{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-color: white;
+    border-width: 5px;
+    border-bottom-color: white;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+    background: #212F3D
+}
+
+#circle_thin_outline{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-color: white;
+    border-width: 1px;
+    border-bottom-color: white;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #212F3D
+}
+
+#courses{
+    text-align: center;
+    background-color: #4f5962;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+#circle_course{
+    width: 200px;
+    height: 150px;
+    display: inline-block;
+    border-color: white;
+    border-width: 5px;
+    border-style: solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: center;
+    background: #212F3D
+}
