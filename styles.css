@@ -45,6 +45,10 @@ body {
     text-align: center;
 }
 
+#resLink{
+    text-align: center;
+}
+
 #resume:hover {
     width: 25%;
     height: 25%;
