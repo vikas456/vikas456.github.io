@@ -20,17 +20,17 @@ a,button{
 
 /* Text selection background-color */
 ::-moz-selection {
-    background-color: #42BC7F;
+    background-color: #5DADE2;
     color: #fff;
 }
  
 ::selection {
-    background-color: #42BC7F;
+    background-color: #5DADE2;
     color: #fff;
 }
 ::-moz-selection,
 ::selection {
-    background-color: #42BC7F;
+    background-color: #5DADE2;
     color: #fff;
 }
 /* social */
@@ -47,7 +47,7 @@ a,button{
 .social-body ul li a{
 	font-size:20px;
 	color:#fff;
-	background:#42bc7f;
+	background:#5DADE2;
 	height: 40px;
     width: 40px;
 	line-height:40px;
@@ -103,7 +103,7 @@ a:hover{
 	font-weight: 700;
 }
 .section-title h2 span {
-	color: #42bc7f;
+	color: #5DADE2;
 }
 /*breadcrumb*/
 .breadcrumb{
@@ -120,10 +120,10 @@ a:hover{
 	float: right;
 }
 .breadcrumb .breadcrumb-text h2{
-	color:#42BC7F;
+	color:#5DADE2;
 	text-transform:capitalize;
 	padding-bottom:10px;
-	border-bottom:5px solid #42BC7F;
+	border-bottom:5px solid #5DADE2;
 }
 /*slicknav_menu*/
 .slicknav_menu{
@@ -134,7 +134,7 @@ a:hover{
 	bottom: 15px;
 	right: 15px;
 	padding: 10px 20px;
-	background: #42bc7f;
+	background: #5DADE2;
 	color: #fff;
 	font-size: 25px;
 	width: 40px;
@@ -152,13 +152,13 @@ a:hover{
 	Header CSS
 ===========================*/
 .header{
-	background:linear-gradient(-154deg,#42bc7f,#3d8963);
+	background:linear-gradient(-154deg,#5DADE2,#2E86C1);
 }
 .header .navbar-collapse{
 	padding:0;
 }
 .header .header-inner {
-	background: linear-gradient(-154deg,#42bc7f,#3d8963);
+	background: linear-gradient(-154deg,#5DADE2,#2E86C1);
 	-webkit-box-shadow: 0px 0px 5px #000;
 	-moz-box-shadow: 0px 0px 5px #000;
 	box-shadow: 0px 0px 5px #000;
@@ -234,7 +234,7 @@ a:hover{
 	float:right;
 }
 .header .nav li .dropdown li:hover a{
-	color:#42BC7F;
+	color:#5DADE2;
 }
 .header .nav li .dropdown li a:before{
 	display:none;
@@ -255,7 +255,7 @@ a:hover{
 	visibility:visible;
 }
 .header .nav li .dropdown .sub-dropdown li:hover a {
-	color:#42BC7F;
+	color:#5DADE2;
 }
 .header .nav li .dropdown .sub-dropdown li a{
 	color:#fff;
@@ -324,10 +324,10 @@ a:hover{
 }
 .slider .button .btn:hover{
 	color:#fff;
-	background:#42bc7f;
+	background:#5DADE2;
 }
 .slider .button .primary{
-	background:#42bc7f;
+	background:#5DADE2;
 	color:#fff;
 }
 .slider .button .primary:hover{
@@ -359,7 +359,7 @@ a:hover{
 	font-size: 15px;
 	height: 40px;
 	color: #fff;
-	background:#42BC7F;
+	background:#5DADE2;
 	text-transform:uppercase;
 	display: inline-block;
 	line-height: 40px;
@@ -388,7 +388,7 @@ a:hover{
 .about .single-about .social li a i {
 	font-size: 20px;
 	color: #fff;
-	background: #42bc7f;
+	background: #5DADE2;
 	font-size: 17px;
 	height: 30px;
 	width: 30px;
@@ -441,7 +441,7 @@ a:hover{
 	Services CSS
 ===========================*/
 .service{
-	background: linear-gradient(-154deg,#42bc7f,#305a45);
+	background: linear-gradient(-154deg,#5DADE2,#2E86C1);
 	padding: 40px 0 100px;
 }
 .service .section-title {
@@ -551,7 +551,7 @@ a:hover{
 	border-bottom-color:#ED1C24;
 }
 .skill .progress .progress-bar{
-	background:#42bc7f;
+	background:#5DADE2;
 }
 .skill .button{
 	margin-top:20px;
@@ -596,7 +596,7 @@ a:hover{
 	top: 0;
 	height: 100%;
 	width: 1px;
-	background: #42bc7f;
+	background: #5DADE2;
 }
 .story .single-story span {
 	display: block;
@@ -620,7 +620,7 @@ a:hover{
 	top: 9px;
 	height: 18px;
 	width: 18px;
-	background: #42bc7f;
+	background: #5DADE2;
 	border-radius: 100%;
 }
 .story .single-story span::after {
@@ -740,7 +740,7 @@ a:hover{
 .latest-works .works-menu ul li:hover,
 .latest-works .works-menu ul li.active{
 	color:#fff;
-	background:#42bc7f;
+	background:#5DADE2;
 }
 .latest-works .works-menu ul li i{
 	margin-right:5px;
@@ -753,7 +753,7 @@ a:hover{
 	top: 0px;
 	height: 1px;
 	width: 100%;
-	background: #42bc7f;
+	background: #5DADE2;
 	opacity:0;
 	visibility:hidden;
 	transition:all 0.4s ease;
@@ -770,7 +770,7 @@ a:hover{
 	bottom: 0px;
 	height: 1px;
 	width: 100%;
-	background: #42bc7f;
+	background: #5DADE2;
 	opacity:0;
 	visibility:hidden;
 	transition:all 0.4s ease;
@@ -789,7 +789,7 @@ a:hover{
 	overflow:hidden;
 }
 .latest-works .single-work:before{
-	background: #42bc7f;
+	background: #5DADE2;
     top:0px;
 	left:0;
     content: "";
@@ -977,10 +977,10 @@ margin:0;
 	line-height:42px;
 	text-align:center;
 	display:block;
-	color:#42bc7f;
+	color:#5DADE2;
 }
 .footer .social li a:hover{
-	box-shadow:0px 0px 5px #42BC7F inset;
+	box-shadow:0px 0px 5px #5DADE2 inset;
 	color:#fff;
 }
 .footer .social li span{
