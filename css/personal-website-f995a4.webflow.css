@@ -1772,7 +1772,7 @@ figcaption {
 .fn-features-card-image {
   width: 100%;
   height: 225px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .fn-features-card-with-image {
@@ -1960,7 +1960,7 @@ figcaption {
 .fn-cover-image-3 {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   margin-top: 20px;
   margin-bottom: 40px;
   margin-right: 20px;
@@ -3324,17 +3324,6 @@ figcaption {
   justify-self: end;
 }
 
-#w-node-fc55ee04-072b-361a-feab-767faddc813d-168f56f3 {
-  grid-area: span 1 / span 5 / span 1 / span 5;
-  align-self: center;
-}
-
-#w-node-fc55ee04-072b-361a-feab-767faddc8147-168f56f3 {
-  grid-area: 1 / 7 / 2 / 13;
-  align-self: center;
-  justify-self: end;
-}
-
 @media screen and (max-width: 991px) {
   #w-node-_01c8072e-7a4e-49b2-2e7b-a482f9ee2d43-168f56ef, #w-node-_01c8072e-7a4e-49b2-2e7b-a482f9ee2d4d-168f56ef {
     grid-column: span 4 / span 4;
@@ -3429,14 +3418,6 @@ figcaption {
   #w-node-_9dda315d-eb18-7b74-27db-a32ca3838d5e-168f56f3 {
     grid-area: span 1 / span 4 / span 1 / span 4;
   }
-
-  #w-node-fc55ee04-072b-361a-feab-767faddc813d-168f56f3 {
-    grid-column: span 4 / span 4;
-  }
-
-  #w-node-fc55ee04-072b-361a-feab-767faddc8147-168f56f3 {
-    grid-area: span 1 / span 4 / span 1 / span 4;
-  }
 }
 
 @media screen and (max-width: 767px) {
@@ -3513,7 +3494,7 @@ figcaption {
     justify-self: stretch;
   }
 
-  #w-node-a69e7332-77a4-ff6b-e260-117e632eecc1-168f56f3, #w-node-_822e798e-5806-3e23-b542-72688fc347f4-168f56f3, #w-node-f79b667d-2d47-7c09-4449-6dc227fe6a30-168f56f3, #w-node-a2b08161-405f-31b6-5383-e94ccd77d212-168f56f3, #w-node-c88772cf-3866-2a1e-179b-f3ed645e9429-168f56f3, #w-node-fc55ee04-072b-361a-feab-767faddc8145-168f56f3 {
+  #w-node-a69e7332-77a4-ff6b-e260-117e632eecc1-168f56f3, #w-node-_822e798e-5806-3e23-b542-72688fc347f4-168f56f3, #w-node-f79b667d-2d47-7c09-4449-6dc227fe6a30-168f56f3, #w-node-a2b08161-405f-31b6-5383-e94ccd77d212-168f56f3, #w-node-c88772cf-3866-2a1e-179b-f3ed645e9429-168f56f3 {
     grid-area: span 1 / span 2 / span 1 / span 2;
     justify-self: stretch;
   }
