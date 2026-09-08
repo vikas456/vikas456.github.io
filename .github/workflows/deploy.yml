@@ -1,24 +1,17 @@
 # Deploys the site to GitHub Pages.
 #
-# NOT LIVE YET — ON PURPOSE.
-# There is no `push:` trigger, so nothing deploys automatically. The site can
-# only be published by running this workflow by hand from the Actions tab.
+# Live. Every push to master publishes to https://www.vikasperaka.com, and the
+# workflow can also be run by hand from the Actions tab.
 #
-# To go live later:
-#   1. Merge `redesign` into `master`.
-#   2. Repo Settings → Pages → Source: change "Deploy from a branch" to
-#      "GitHub Actions". (Until this is changed, Pages keeps serving the old
-#      site from the master branch and this workflow has no effect.)
-#   3. Actions → "Deploy site" → Run workflow.
-#   4. Once you are happy, uncomment the `push:` block below so every commit
-#      to master publishes automatically.
+# Pages source is set to "GitHub Actions" in repo settings; the contact form key
+# comes from the PUBLIC_WEB3FORMS_KEY repository secret.
 
 name: Deploy site
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [master]
+  push:
+    branches: [master]
 
 permissions:
   contents: read
