@@ -2,6 +2,15 @@
 
 export type ReachGroup = 'built' | 'revenue';
 
+/** A project branching off a product node. */
+export interface ReachChild {
+  key: string;
+  /** Short enough to render as a canvas label. */
+  label: string;
+  /** Full description, shown in the tooltip and in the text equivalent. */
+  detail: string;
+}
+
 export interface ReachNode {
   key: string;
   label: string;
@@ -15,58 +24,135 @@ export interface ReachNode {
   /** Plain-English description — this is read by non-technical visitors. */
   did: string;
   metric: string;
+  children: ReachChild[];
 }
 
 export const reachNodes: ReachNode[] = [
   {
     key: 'fbig',
-    label: 'Facebook · Instagram',
+    label: 'Facebook \u00b7 Instagram',
     group: 'built',
-    radius: 28,
-    angle: -2.51,
-    distance: 0.95,
+    radius: 27,
+    angle: -2.42,
+    distance: 0.98,
     did: 'I built the account and privacy settings people use every day.',
     metric: 'Over 1 billion people',
+    children: [
+      {
+        key: 'birthday',
+        label: 'Birthday & age verification',
+        detail: 'Implemented birthday settings and age verification across Meta.',
+      },
+      {
+        key: 'desktop-migration',
+        label: 'Mobile \u2192 desktop',
+        detail: 'Drove the implementation and migration of settings from mobile to desktop surfaces.',
+      },
+      {
+        key: 'privacy',
+        label: 'Privacy & regulatory',
+        detail: 'Expanded support for user privacy and regulatory settings.',
+      },
+    ],
   },
   {
     key: 'mkt',
     label: 'Marketplace Ads',
     group: 'revenue',
-    radius: 23,
-    angle: -1.26,
+    radius: 24,
+    angle: -0.72,
     distance: 1.0,
-    did: 'I built the tools sellers use to promote what they’re selling.',
+    did: 'I built the tools sellers use to promote what they\u2019re selling.',
     metric: '20% more advertisers, year over year',
+    children: [
+      {
+        key: 'uxr',
+        label: 'UX from user research',
+        detail: 'UX improvements based on UXR feedback, to make the flow more seamless.',
+      },
+      {
+        key: 'desktop',
+        label: 'Mobile \u2192 desktop',
+        detail: 'Expanded the feature from mobile to desktop.',
+      },
+      {
+        key: 'pages',
+        label: 'Pages & small business',
+        detail: 'Expanded Marketplace promotions to Pages and small businesses.',
+      },
+      {
+        key: 'pricing',
+        label: 'Pricing & urgency models',
+        detail:
+          'Improved model output using business strategy and tactics \u2014 charm pricing, value props and urgency deals.',
+      },
+    ],
   },
   {
     key: 'msg',
     label: 'Messenger',
     group: 'built',
     radius: 24,
-    angle: 0.01,
-    distance: 0.92,
+    angle: 2.42,
+    distance: 0.94,
     did: 'I built message forwarding and the group chat settings.',
     metric: 'Over 2 billion people',
+    children: [
+      {
+        key: 'reporting',
+        label: 'Reporting flows',
+        detail: 'Built the flows people use to report messages and conversations.',
+      },
+      {
+        key: 'group',
+        label: 'Group chat settings',
+        detail:
+          'Group chat settings \u2014 adding members, themes, blocking users, and general chat customisation.',
+      },
+      {
+        key: 'article',
+        label: 'Article context',
+        detail: 'Article context, so people can see which publication a shared link came from.',
+      },
+      {
+        key: 'forwarding',
+        label: 'Forwarding & replies',
+        detail: 'Message forwarding and reply functionality on Messenger Desktop.',
+      },
+    ],
   },
   {
     key: 'shop',
     label: 'meta.com Shop',
     group: 'revenue',
-    radius: 24,
-    angle: 1.27,
-    distance: 0.98,
-    did: 'I lead the team behind Meta’s AI glasses store.',
+    radius: 25,
+    angle: 0.72,
+    distance: 1.0,
+    did: 'I lead the team behind Meta\u2019s AI glasses store.',
     metric: '5% more sales, year over year',
-  },
-  {
-    key: 'vr',
-    label: 'Meta Quest',
-    group: 'built',
-    radius: 20,
-    angle: 2.53,
-    distance: 0.86,
-    did: 'I led the settings experience on Meta’s VR headsets.',
-    metric: '30+ settings built',
+    children: [
+      {
+        key: 'speed',
+        label: 'Site speed +30%',
+        detail: 'Led site performance and reliability work, improving site speed by 30%.',
+      },
+      {
+        key: 'redesign',
+        label: 'Org-wide redesigns',
+        detail: 'Led org-wide site redesigns.',
+      },
+      {
+        key: 'tryon',
+        label: 'Virtual try-on',
+        detail: 'Owner of the virtual try-on features.',
+      },
+      {
+        key: 'connect',
+        label: 'Meta Connect architecture',
+        detail:
+          'Built site architecture that seamlessly supports new product launches for Meta Connect.',
+      },
+    ],
   },
 ];
 

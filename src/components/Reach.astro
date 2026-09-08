@@ -2,10 +2,11 @@
 import { reachNodes } from '../data/content';
 
 const altText =
-  'Diagram of the Meta products Vikas has helped build: account settings on Facebook, ' +
-  'Instagram, Messenger and Meta Quest used by over a billion people; Marketplace advertising ' +
-  'tools that grew advertisers 20% year over year; and the meta.com store for Meta AI glasses, ' +
-  'where sales grew 5% year over year.';
+  'Diagram of the Meta products Vikas has helped build and the projects behind each: ' +
+  reachNodes
+    .map((n) => `${n.label} — ${n.did} ${n.metric}. Projects: ${n.children.map((c) => c.label).join(', ')}`)
+    .join('. ') +
+  '.';
 ---
 <section class="reach" aria-labelledby="reach-h">
   <h2 id="reach-h" class="sr-only">Products I've helped build</h2>
@@ -19,7 +20,7 @@ const altText =
         </div>
       </div>
       <canvas id="reach-canvas" role="img" aria-label={altText}></canvas>
-      <div class="reach-hint">Hover to explore</div>
+      <div class="reach-hint">Hover a product to see its projects</div>
       <div id="reach-tip" role="status"></div>
     </div>
   </div>
@@ -28,7 +29,12 @@ const altText =
        engines and screen readers, since canvas pixels are invisible to both. -->
   <ul class="sr-only">
     {reachNodes.map((n) => (
-      <li>{n.label}: {n.did} {n.metric}.</li>
+      <li>
+        {n.label}: {n.did} {n.metric}.
+        <ul>
+          {n.children.map((c) => <li>{c.label} — {c.detail}</li>)}
+        </ul>
+      </li>
     ))}
   </ul>
 </section>

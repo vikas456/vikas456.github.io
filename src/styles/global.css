@@ -157,7 +157,7 @@ section{scroll-margin-top:24px}
   mask-image:radial-gradient(ellipse 70% 62% at 50% 48%, #000 30%, transparent 78%);
   -webkit-mask-image:radial-gradient(ellipse 70% 62% at 50% 48%, #000 30%, transparent 78%);
 }
-#reach-canvas{display:block; width:100%; height:392px; position:relative; z-index:1; cursor:crosshair}
+#reach-canvas{display:block; width:100%; height:470px; position:relative; z-index:1; cursor:crosshair}
 .reach-cap{
   position:absolute; left:18px; top:16px; z-index:3; display:flex; flex-direction:column; gap:6px;
   pointer-events:none;
@@ -181,6 +181,9 @@ section{scroll-margin-top:24px}
 #reach-tip h4{margin:0 0 3px; font-size:13.5px; color:var(--bright); font-family:"Manrope Variable",sans-serif; font-weight:800; letter-spacing:-.01em}
 #reach-tip p{font-size:12.5px; line-height:1.5; color:var(--dim)}
 #reach-tip .metric{display:block; margin-top:6px; font-size:12.5px; font-weight:800; letter-spacing:-.01em}
+#reach-tip .hint-more{display:block; margin-top:7px; padding-top:7px; border-top:1px solid var(--line);
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:10px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--dim)}
 
 /* ---- PROSE ---- */
 .sec{padding:34px 0}
@@ -299,7 +302,7 @@ section{scroll-margin-top:24px}
   .rail .actions{grid-template-columns:1fr 1fr 46px 46px}
   .inner{padding:0 26px; max-width:none}
   .hero{padding:44px 0 32px}
-  #reach-canvas{height:340px}
+  #reach-canvas{height:430px}
   .cards{grid-template-columns:1fr}
   .card.feat{grid-column:auto}
   .about-grid{grid-template-columns:1fr; gap:28px}
@@ -309,7 +312,7 @@ section{scroll-margin-top:24px}
 @media (max-width:520px){
   .inner,.rail{padding-left:20px; padding-right:20px}
   .rail .actions{grid-template-columns:1fr 1fr 46px 46px}
-  #reach-canvas{height:290px}
+  #reach-canvas{height:390px}
   .reach-hint{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important; transition-duration:.001ms !important}
