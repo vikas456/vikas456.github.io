@@ -66,14 +66,28 @@ The form posts to [Web3Forms](https://web3forms.com) (free, no backend). Without
 key it falls back to opening the visitor's mail client, so the button always does
 something real.
 
-To enable real delivery, create `.env` in the repo root:
+**Local:** `.env` in the repo root holds the key. It is gitignored, so a fresh
+clone needs it recreated:
 
 ```
 PUBLIC_WEB3FORMS_KEY=your-access-key-here
 ```
 
-For the deployed site, add the same value as a repository secret and expose it to
-the build step in `.github/workflows/deploy.yml`.
+**Deployed:** the key comes from a repository secret named
+`PUBLIC_WEB3FORMS_KEY` (Settings → Secrets and variables → Actions). The build
+step in `.github/workflows/deploy.yml` already reads it.
+
+The key is inlined into the HTML by design — Astro exposes `PUBLIC_`-prefixed
+variables to the client, and a Web3Forms key only names the destination inbox. It
+cannot read past submissions or send mail as you.
+
+Check which mode a build is in:
+
+```bash
+grep -o 'data-endpoint="[^"]*"' dist/index.html
+```
+
+`web3forms` means real delivery; `mailto` means the key was missing at build time.
 
 Spam protection: a honeypot field plus Web3Forms' own filtering. Submissions that
 trip the honeypot are silently accepted and discarded so bots learn nothing.
