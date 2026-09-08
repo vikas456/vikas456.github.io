@@ -20,9 +20,19 @@ const portraitPath = p('src/assets/vikas-peraka.png');
 
 await mkdir(p('public/images'), { recursive: true });
 
-/* ---- favicons ---- */
-const png32 = await sharp(faviconSvg, { density: 384 }).resize(32, 32).png().toBuffer();
-const png16 = await sharp(faviconSvg, { density: 384 }).resize(16, 16).png().toBuffer();
+/* ---- favicons ----
+   Google asks for a favicon that is a multiple of 48px square for search
+   results, so the .ico carries a 48px entry as well as the 16/32 browsers use,
+   and a 96px PNG is published for anything that prefers a larger source. */
+const icoPng = async (size) =>
+  sharp(faviconSvg, { density: 768 }).resize(size, size).png().toBuffer();
+
+const png16 = await icoPng(16);
+const png32 = await icoPng(32);
+const png48 = await icoPng(48);
+
+await writeFile(p('public/favicon-96.png'), await icoPng(96));
+await writeFile(p('public/favicon-192.png'), await icoPng(192));
 await writeFile(p('public/apple-touch-icon.png'),
   await sharp(faviconSvg, { density: 768 }).resize(180, 180).png({ quality: 90 }).toBuffer());
 
@@ -50,7 +60,11 @@ function buildIco(images) {
   return Buffer.concat([header, ...dirs, ...images.map((i) => i.data)]);
 }
 await writeFile(p('public/favicon.ico'),
-  buildIco([{ size: 16, data: png16 }, { size: 32, data: png32 }]));
+  buildIco([
+    { size: 16, data: png16 },
+    { size: 32, data: png32 },
+    { size: 48, data: png48 },
+  ]));
 
 /* ---- portrait for structured data ---- */
 await sharp(portraitPath).resize(600, 600, { fit: 'cover', position: 'top' })
@@ -97,4 +111,4 @@ await sharp(card)
   .png({ compressionLevel: 9 })
   .toFile(p('public/og-image.png'));
 
-console.log('✓ favicon.ico, apple-touch-icon.png, vikas-peraka.jpg, og-image.png');
+console.log('✓ favicon.ico (16/32/48), favicon-96.png, favicon-192.png, apple-touch-icon.png, vikas-peraka.jpg, og-image.png');
