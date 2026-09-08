@@ -194,7 +194,6 @@ export const timeline: TimelineEntry[] = [
   {
     when: 'JUL 2020 — NOV 2023',
     title: 'Cross-Meta Experiences · Settings Platform',
-    badge: 'Tech Lead',
     org: 'Meta · San Francisco, CA',
     bullets: [
       'Led and built frameworks for <em>30+ settings</em> from the ground up, including Accounts Center, unified across Facebook, Instagram, Messenger and VR devices — used by <em>over 1 billion people</em>.',

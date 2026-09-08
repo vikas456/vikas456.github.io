@@ -20,7 +20,12 @@ const altText =
         </div>
       </div>
       <canvas id="reach-canvas" role="img" aria-label={altText}></canvas>
-      <div class="reach-hint">Hover a product to see its projects</div>
+      <div class="reach-controls">
+        <button type="button" id="reach-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="reach-in" aria-label="Zoom in">+</button>
+        <button type="button" id="reach-reset" aria-label="Reset the view">Reset</button>
+      </div>
+      <div class="reach-hint">Click a node &middot; drag to pan</div>
       <div id="reach-tip" role="status"></div>
     </div>
   </div>
