@@ -173,11 +173,18 @@ section{scroll-margin-top:24px}
 .sec{padding:34px 0}
 .sec h2{font-size:clamp(25px,3.2vw,32px); font-weight:800; margin-bottom:16px}
 .prose{display:flex; flex-direction:column; gap:14px; font-size:15.5px}
-/* Two columns keep the line length readable (~55 characters) while the block
-   still fills the content width. Single column below the breakpoint. */
-.about-cols{columns:2; column-gap:52px}
-.about-cols p{margin:0 0 13px; break-inside:avoid}
-.about-cols p:last-child{margin-bottom:0}
+/* Text beside a photo: the pair fills the content width, and the photo's
+   fixed column keeps the text at a readable ~69-character measure. */
+.about-grid{display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:44px; align-items:start}
+.about-photo{margin:0; display:flex; flex-direction:column; gap:10px}
+.about-photo img{
+  width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; object-position:center 20%;
+  border-radius:14px; border:1px solid var(--line-hi); display:block;
+}
+.about-photo figcaption{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  font-size:11px; letter-spacing:.04em; color:var(--dim); line-height:1.5;
+}
 .prose b{color:var(--bright); font-weight:700}
 .skills{display:flex; flex-wrap:wrap; gap:7px; margin-top:6px}
 .skills span{
@@ -286,7 +293,8 @@ section{scroll-margin-top:24px}
   #reach-canvas{height:340px}
   .cards{grid-template-columns:1fr}
   .card.feat{grid-column:auto}
-  .about-cols{columns:1}
+  .about-grid{grid-template-columns:1fr; gap:28px}
+  .about-photo{max-width:260px}
   .field-row{grid-template-columns:1fr}
 }
 @media (max-width:520px){

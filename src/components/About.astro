@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import austin from '../assets/vikas-austin.png';
+
 // Inline elements stay on the same line as the preceding word on purpose:
 // Astro trims whitespace at line breaks adjacent to elements.
 const skills = [
@@ -10,8 +13,9 @@ const skills = [
   <div class="inner">
     <div class="sec-head"><span class="lbl">01 — About Me</span><span class="rule"></span></div>
     <h2>Full-stack engineer, cross-org by instinct</h2>
-    <div class="prose">
-      <div class="about-cols">
+
+    <div class="about-grid">
+      <div class="prose">
         <p>
           I'm a dedicated <b>full-stack software engineer</b> with six years of industry experience at Meta, working end to end in React.js, GraphQL, Hack/PHP, Python and Java. I've led and contributed to key projects — building <b>boosted listing ad products</b> for Marketplace that grew active advertisers <span class="num">20% year over year</span>, and developing <span class="num">30+ settings</span> from the ground up for Accounts Center, impacting <span class="num">over a billion users</span> across Facebook, Instagram, Messenger and VR devices.
         </p>
@@ -24,11 +28,24 @@ const skills = [
         <p>
           Outside work I'm an avid sports enthusiast — soccer, basketball and football — with a passion for video games and cooking.
         </p>
+        <ul class="skills" aria-label="Skills">
+          {skills.map((s) => <li><span>{s}</span></li>)}
+        </ul>
       </div>
 
-      <ul class="skills" aria-label="Skills">
-        {skills.map((s) => <li><span>{s}</span></li>)}
-      </ul>
+      <figure class="about-photo">
+        <Image
+          src={austin}
+          alt="Vikas Peraka on the University of Texas at Austin campus, wearing a Texas shirt with an arm around the Longhorn mascot"
+          widths={[380, 760]}
+          sizes="(max-width: 1000px) 260px, 380px"
+          format="webp"
+          quality={74}
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Where it started — UT Austin, class of 2020.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
