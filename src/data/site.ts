@@ -6,6 +6,8 @@ export const profile = {
   location: 'San Francisco, CA',
   // Recruiters filter on work authorisation, so state it plainly.
   citizenship: 'US Citizen',
+  // Availability pill in the rail. Deliberately says nothing about job hunting.
+  status: 'Open to connecting',
   email: 'vikas.peraka@gmail.com',
   // Keep in sync with the tagline in Hero.astro.
   tagline: 'Software used by a billion people. Growth work that moves revenue.',
