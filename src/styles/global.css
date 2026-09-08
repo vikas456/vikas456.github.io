@@ -80,6 +80,18 @@ p{margin:0}
 .rnav a.on i{width:28px; opacity:1; background:var(--accent)}
 
 .rail-spacer{margin-top:auto}
+
+/* Pinned to the foot of the rail: the details a recruiter checks first, on
+   screen at every scroll position instead of only in the footer. */
+.rail-facts{
+  margin:0; padding-top:18px; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; gap:13px;
+}
+.rail-facts dt{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim);
+}
+.rail-facts dd{margin:3px 0 0; font-size:12.8px; font-weight:600; color:var(--txt); line-height:1.45}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,214,160,.45)}70%,100%{box-shadow:0 0 0 8px rgba(79,214,160,0)}}
 /* actions: primary / secondary / icons */
 .actions{display:flex; gap:8px; flex-wrap:wrap; align-items:stretch}
@@ -336,6 +348,7 @@ section{scroll-margin-top:24px}
   .rnav{flex-direction:row; flex-wrap:wrap; gap:6px}
   .rnav a i{display:none}
   .rail-spacer{display:none}
+  .rail-facts{flex-direction:row; flex-wrap:wrap; gap:10px 26px; margin-top:16px}
   .rail .actions{grid-template-columns:1fr 1fr 46px 46px}
   .inner{padding:0 26px; max-width:none}
   .hero{padding:44px 0 32px}

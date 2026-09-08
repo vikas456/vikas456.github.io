@@ -13,6 +13,16 @@ export const profile = {
   tagline: 'Software used by a billion people. Growth work that moves revenue.',
 } as const;
 
+/**
+ * The three things a recruiter checks first, pinned to the bottom of the rail
+ * so they are on screen at every scroll position rather than only in the footer.
+ */
+export const railFacts = [
+  { label: 'Currently', value: 'Tech lead, meta.com growth team' },
+  { label: 'Based in', value: 'San Francisco, CA · US Citizen' },
+  { label: 'Experience', value: '6 years at Meta' },
+] as const;
+
 export const links = {
   linkedin: 'https://www.linkedin.com/in/vikasperaka/',
   github: 'https://github.com/vikas456',

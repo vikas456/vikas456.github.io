@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Actions from './Actions.astro';
 import portrait from '../assets/vikas-peraka.png';
-import { profile } from '../data/site';
+import { profile, railFacts } from '../data/site';
 
 const nav = [
   { id: 'about', label: 'About Me' },
@@ -33,4 +33,13 @@ const nav = [
   </nav>
 
   <div class="rail-spacer"></div>
+
+  <dl class="rail-facts">
+    {railFacts.map((f) => (
+      <div>
+        <dt>{f.label}</dt>
+        <dd>{f.value}</dd>
+      </div>
+    ))}
+  </dl>
 </aside>
