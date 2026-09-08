@@ -16,7 +16,11 @@ interface Props {
 
 const { title = seo.title, description = seo.description, noindex = false } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, seo.siteUrl).href.replace(/\/$/, '') || seo.siteUrl;
+const cleanPath = Astro.url.pathname
+  .replace(/index\.html$/, '')
+  .replace(/\.html$/, '')
+  .replace(/\/$/, '');
+const canonical = new URL(cleanPath || '/', seo.siteUrl).href;
 const ogImage = new URL(seo.ogImage, seo.siteUrl).href;
 
 // Rich result for a person — this is what lets Google show a knowledge panel
@@ -50,6 +54,7 @@ const personSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -59,6 +64,7 @@ const personSchema = {
     {noindex && <meta name="robots" content="noindex, follow" />}
 
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={profile.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

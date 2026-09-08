@@ -20,8 +20,9 @@ export const links = {
 export const seo = {
   siteUrl: 'https://www.vikasperaka.com',
   title: 'Vikas Peraka — Full-stack Software Engineer at Meta',
+  // Keep under ~155 characters — Google truncates SERP snippets past that.
   description:
-    'Vikas Peraka is a full-stack software engineer at Meta with six years across product growth, ads and commerce — settings frameworks used by over a billion people, ad products that grew Marketplace advertisers 20% YoY, and the meta.com store for Meta AI glasses.',
+    'Full-stack software engineer at Meta — six years across product growth, ads and commerce, building products used by over a billion people.',
   ogImage: '/og-image.png',
   keywords: [
     'Vikas Peraka',
