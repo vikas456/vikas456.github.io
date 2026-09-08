@@ -9,17 +9,19 @@ const altText =
 ---
 <section class="reach" aria-labelledby="reach-h">
   <h2 id="reach-h" class="sr-only">Products I've helped build</h2>
-  <div class="reach-frame">
-    <div class="reach-cap">
-      <span class="lbl">Products I've helped build</span>
-      <div class="reach-legend">
-        <span><i style="background:#6E8BFF"></i>Products I've built</span>
-        <span><i style="background:#FFB86B"></i>Revenue I've grown</span>
+  <div class="inner">
+    <div class="reach-frame">
+      <div class="reach-cap">
+        <span class="lbl">Products I've helped build</span>
+        <div class="reach-legend">
+          <span><i style="background:#6E8BFF"></i>Products I've built</span>
+          <span><i style="background:#FFB86B"></i>Revenue I've grown</span>
+        </div>
       </div>
+      <canvas id="reach-canvas" role="img" aria-label={altText}></canvas>
+      <div class="reach-hint">Hover to explore</div>
+      <div id="reach-tip" role="status"></div>
     </div>
-    <canvas id="reach-canvas" role="img" aria-label={altText}></canvas>
-    <div class="reach-hint">Hover to explore</div>
-    <div id="reach-tip" role="status"></div>
   </div>
 
   <!-- Text equivalent: keeps the diagram's content in the DOM for search

@@ -34,11 +34,12 @@ p{margin:0}
 .lbl{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--dim)}
 
 /* ================= LAYOUT ================= */
-.shell{display:grid; grid-template-columns:var(--rail-w) minmax(0,1fr)}
+.shell{display:grid; grid-template-columns:var(--rail-w) minmax(0,1fr); max-width:1542px; margin:0 auto}
 
 /* ================= RAIL ================= */
 .rail{
   position:sticky; top:0; height:100vh; background:var(--rail);
+  box-shadow:-100vw 0 0 var(--rail);
   border-right:1px solid var(--line); padding:40px 32px 30px;
   display:flex; flex-direction:column; gap:24px; overflow:hidden;
 }
@@ -104,7 +105,7 @@ p{margin:0}
 
 /* ================= CONTENT ================= */
 .content{padding:0 0 90px; min-width:0}
-.inner{max-width:780px; padding:0 48px}
+.inner{max-width:1180px; padding:0 48px}
 section{scroll-margin-top:24px}
 .sec-head{display:flex; align-items:center; gap:14px; margin-bottom:18px}
 .sec-head .rule{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent)}
@@ -132,7 +133,7 @@ section{scroll-margin-top:24px}
 /* ---- CONSTELLATION ---- */
 .reach{padding:8px 0 58px}
 .reach-frame{
-  position:relative; margin:0 48px; border:1px solid var(--line); border-radius:18px;
+  position:relative; border:1px solid var(--line); border-radius:18px;
   background:radial-gradient(120% 100% at 50% 0%, #10151E 0%, #0B0E14 62%);
   overflow:hidden;
 }
@@ -260,6 +261,7 @@ section{scroll-margin-top:24px}
 }
 .site-foot .who{font-size:12.8px; color:var(--dim); line-height:1.6}
 .site-foot .who b{display:block; color:var(--txt); font-weight:700; font-size:13.5px}
+.site-foot .who > span{display:block}
 .site-foot .actions{flex:0 1 auto; max-width:100%}
 .site-foot .actions{align-items:center}
 .site-foot .act{flex:0 0 auto; min-width:0; height:44px}
@@ -274,7 +276,6 @@ section{scroll-margin-top:24px}
   .rail-spacer{display:none}
   .rail .actions{grid-template-columns:1fr 1fr 46px 46px}
   .inner{padding:0 26px; max-width:none}
-  .reach-frame{margin:0 26px}
   .hero{padding:44px 0 32px}
   #reach-canvas{height:340px}
   .cards{grid-template-columns:1fr}
@@ -284,7 +285,6 @@ section{scroll-margin-top:24px}
 @media (max-width:520px){
   .inner,.rail{padding-left:20px; padding-right:20px}
   .rail .actions{grid-template-columns:1fr 1fr 46px 46px}
-  .reach-frame{margin:0 20px}
   #reach-canvas{height:290px}
   .reach-hint{display:none}
 }
