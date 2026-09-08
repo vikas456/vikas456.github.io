@@ -362,7 +362,7 @@ section{scroll-margin-top:24px}
 @media (max-width:520px){
   .inner,.rail{padding-left:20px; padding-right:20px}
   .rail .actions{grid-template-columns:1fr 1fr 46px 46px}
-  #reach-canvas{height:420px}
+  #reach-canvas{height:330px}
   .reach-hint{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important; transition-duration:.001ms !important}

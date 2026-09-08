@@ -45,7 +45,7 @@ export function initReachDiagram(nodes: ReachNode[]): void {
   let w = 0, h = 0;
   let items: Placed[] = [];
   let core: Pt = { x: 0, y: 0 };
-  let fit = 1, viewX = 0, viewY = 0;
+  let fit = 1, viewX = 0, viewY = 0, centreY = 0;
   let zoom = 1, panX = 0, panY = 0;
   let hovered: Placed | null = null;
   let pinned: Placed | null = null;
@@ -150,6 +150,12 @@ export function initReachDiagram(nodes: ReachNode[]): void {
     let f = 1;
     let minX = 0, maxX = 0, minY = 0, maxY = 0;
     const margin = 44;
+    // The legend sits over the top-left of the canvas and the hint over the
+    // bottom-right; keep the diagram clear of both rather than letting labels
+    // run underneath them.
+    const insetTop = w > 620 ? 62 : 52;
+    const insetBottom = w > 620 ? 30 : 24;
+    const usableH = h - insetTop - insetBottom;
 
     for (let pass = 0; pass < 4; pass++) {
       minX = -40; maxX = 40; minY = -40; maxY = 40;
@@ -168,18 +174,19 @@ export function initReachDiagram(nodes: ReachNode[]): void {
         minY = Math.min(minY, it.y - halo - 8);
         maxY = Math.max(maxY, it.y + it.labelDy + 8, it.y + halo + 8);
       }
-      f = Math.min((w - margin) / (maxX - minX), (h - margin) / (maxY - minY));
+      f = Math.min((w - margin) / (maxX - minX), (usableH - margin) / (maxY - minY));
     }
 
     fit = f;
     viewX = (minX + maxX) / 2;
     viewY = (minY + maxY) / 2;
+    centreY = insetTop + usableH / 2;
   }
 
   const k = () => fit * zoom;
   const toScreen = (p: Pt): Pt => ({
     x: (p.x - viewX) * k() + w / 2 + panX,
-    y: (p.y - viewY) * k() + h / 2 + panY,
+    y: (p.y - viewY) * k() + centreY + panY,
   });
 
   function resize(): void {
