@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Keep the archived pre-2026 site out of the index so it can't
+# outrank or duplicate the live pages.
+Disallow: /archive/
+
+Sitemap: https://www.vikasperaka.com/sitemap-index.xml

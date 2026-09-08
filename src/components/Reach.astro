@@ -1,0 +1,38 @@
+---
+import { reachNodes } from '../data/content';
+
+const altText =
+  'Diagram of the Meta products Vikas has helped build: account settings on Facebook, ' +
+  'Instagram, Messenger and Meta Quest used by over a billion people; Marketplace advertising ' +
+  'tools that grew advertisers 20% year over year; and the meta.com store for Meta AI glasses, ' +
+  'where sales grew 5% year over year.';
+---
+<section class="reach" aria-labelledby="reach-h">
+  <h2 id="reach-h" class="sr-only">Products I've helped build</h2>
+  <div class="reach-frame">
+    <div class="reach-cap">
+      <span class="lbl">Products I've helped build</span>
+      <div class="reach-legend">
+        <span><i style="background:#6E8BFF"></i>Products I've built</span>
+        <span><i style="background:#FFB86B"></i>Revenue I've grown</span>
+      </div>
+    </div>
+    <canvas id="reach-canvas" role="img" aria-label={altText}></canvas>
+    <div class="reach-hint">Hover to explore</div>
+    <div id="reach-tip" role="status"></div>
+  </div>
+
+  <!-- Text equivalent: keeps the diagram's content in the DOM for search
+       engines and screen readers, since canvas pixels are invisible to both. -->
+  <ul class="sr-only">
+    {reachNodes.map((n) => (
+      <li>{n.label}: {n.did} {n.metric}.</li>
+    ))}
+  </ul>
+</section>
+
+<script>
+  import { reachNodes } from '../data/content';
+  import { initReachDiagram } from '../scripts/reach';
+  initReachDiagram(reachNodes);
+</script>

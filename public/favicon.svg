@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cartoon portrait of Vikas Peraka">
+  <defs>
+    <clipPath id="round"><rect width="64" height="64" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="64" height="64" fill="#6E8BFF"/>
+    <!-- shoulders / shirt -->
+    <path d="M6 64c0-12 11-18 26-18s26 6 26 18Z" fill="#C9D6F5"/>
+    <path d="M26 46h12v7a6 6 0 0 1-12 0Z" fill="#8A5A3B"/>
+    <!-- neck + face -->
+    <rect x="27" y="40" width="10" height="8" rx="4" fill="#8A5A3B"/>
+    <ellipse cx="32" cy="30" rx="14" ry="15.5" fill="#A06A45"/>
+    <!-- ears -->
+    <circle cx="18.5" cy="31" r="3" fill="#8A5A3B"/>
+    <circle cx="45.5" cy="31" r="3" fill="#8A5A3B"/>
+    <!-- hair: curly top -->
+    <path d="M18 26c-1-11 6-17 14-17s15 6 14 17c-2-5-5-7-8-7-3 3-9 4-13 2-3 1-5 2-7 5Z" fill="#1C1512"/>
+    <circle cx="21" cy="18" r="5" fill="#1C1512"/>
+    <circle cx="29" cy="13" r="6" fill="#1C1512"/>
+    <circle cx="38" cy="14" r="5.5" fill="#1C1512"/>
+    <circle cx="44" cy="20" r="4.5" fill="#1C1512"/>
+    <!-- beard -->
+    <path d="M19 30c0 10 6 16 13 16s13-6 13-16c0 6-4 8-13 8s-13-2-13-8Z" fill="#241A15"/>
+    <!-- smile -->
+    <path d="M26 35.5c2.6 3 9.4 3 12 0" fill="none" stroke="#3A2118" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- glasses -->
+    <g fill="none" stroke="#14100E" stroke-width="2.4">
+      <circle cx="24.5" cy="28" r="6.6"/>
+      <circle cx="39.5" cy="28" r="6.6"/>
+      <path d="M31.1 27.4c.6-.9 1.2-.9 1.8 0" stroke-linecap="round"/>
+      <path d="M17.9 27.2 15 26.4M46.1 27.2 49 26.4" stroke-linecap="round"/>
+    </g>
+    <circle cx="24.5" cy="28" r="5.4" fill="#F2F6FF" opacity=".2"/>
+    <circle cx="39.5" cy="28" r="5.4" fill="#F2F6FF" opacity=".2"/>
+    <circle cx="24.5" cy="28.4" r="2" fill="#14100E"/>
+    <circle cx="39.5" cy="28.4" r="2" fill="#14100E"/>
+  </g>
+</svg>

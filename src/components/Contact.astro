@@ -1,0 +1,45 @@
+---
+import Actions from './Actions.astro';
+import { profile, WEB3FORMS_KEY } from '../data/site';
+const hasFormService = WEB3FORMS_KEY.length > 0;
+---
+<section class="sec" id="contact">
+  <div class="inner">
+    <div class="sec-head"><span class="lbl">04 — Contact</span><span class="rule"></span></div>
+    <h2>Let's talk</h2>
+    <p class="mailto-line">
+      Prefer email? <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    </p>
+
+    <div class="contact-grid">
+      <form class="form" id="contact-form" novalidate data-endpoint={hasFormService ? 'web3forms' : 'mailto'}>
+        <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+        <input type="hidden" name="subject" value="New message from vikasperaka.com" />
+        {/* Honeypot: real people never see it, bots fill it in and get dropped. */}
+        <div class="hp" aria-hidden="true">
+          <label for="company_url">Leave this empty</label>
+          <input id="company_url" name="botcheck" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" placeholder="Jane Recruiter" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" placeholder="jane@company.com" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" rows="4" placeholder="We're hiring for…" required></textarea>
+        </div>
+        <button class="btn pri" type="submit">Send message</button>
+        <p id="cf-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initContactForm } from '../scripts/contact';
+  initContactForm();
+</script>

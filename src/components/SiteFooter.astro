@@ -1,0 +1,13 @@
+---
+import Actions from './Actions.astro';
+import { profile } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-foot">
+  <div class="who">
+    <b>{profile.name}</b>
+    {profile.role} · {profile.location}
+    <span class="copy">© {year}</span>
+  </div>
+  <Actions context="footer" />
+</footer>

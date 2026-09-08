@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+import { links, profile } from '../data/site';
+
+interface Props { context: 'rail' | 'footer'; }
+const { context } = Astro.props;
+const idSuffix = context;
+---
+<div class="actions">
+  <a class="act pri" href={links.resume} target="_blank" rel="noopener"
+     data-resume data-track={`resume-${idSuffix}`}>Resume</a>
+  <a class="act" href={`mailto:${profile.email}`} data-track={`email-${idSuffix}`}>Email</a>
+  <a class="ico" href={links.linkedin} target="_blank" rel="noopener"
+     aria-label={`${profile.name} on LinkedIn`} title="LinkedIn" data-track={`linkedin-${idSuffix}`}>
+    <Icon name="linkedin" size={17} />
+  </a>
+  <a class="ico" href={links.github} target="_blank" rel="noopener"
+     aria-label={`${profile.name} on GitHub`} title="GitHub" data-track={`github-${idSuffix}`}>
+    <Icon name="github" size={17} />
+  </a>
+</div>

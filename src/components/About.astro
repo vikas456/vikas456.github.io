@@ -1,0 +1,31 @@
+---
+// Inline elements stay on the same line as the preceding word on purpose:
+// Astro trims whitespace at line breaks adjacent to elements.
+const skills = [
+  'React.js', 'GraphQL', 'Hack', 'PHP', 'Python', 'Java', 'JavaScript', 'HTML/CSS',
+  'SQL', 'Jest', 'Automated Testing', 'Experimentation', 'A/B Testing', 'Agile / Scrum', 'Git',
+];
+---
+<section class="sec" id="about">
+  <div class="inner">
+    <div class="sec-head"><span class="lbl">01 — About Me</span><span class="rule"></span></div>
+    <h2>Full-stack engineer, cross-org by instinct</h2>
+    <div class="prose">
+      <p>
+        I'm a dedicated <b>full-stack software engineer</b> with six years of industry experience at Meta, working end to end in React.js, GraphQL, Hack/PHP, Python and Java. I've led and contributed to key projects — building <b>boosted listing ad products</b> for Marketplace that grew active advertisers <span class="num">20% year over year</span>, and developing <span class="num">30+ settings</span> from the ground up for Accounts Center, impacting <span class="num">over a billion users</span> across Facebook, Instagram, Messenger and VR devices.
+      </p>
+      <p>
+        Today I am <b>one of the tech-leads for the growth team for meta.com</b>, leading <span class="num">five engineers</span>, owning experimentation and the revenue-driving features behind the Meta AI glasses storefront — where the work has lifted sales <span class="num">5% year over year</span>. Before going full-time I interned at Meta on the Messenger Community Integrity team, shipping message forwarding and group messaging settings, and at Expedia Group building internal fraud-detection tooling.
+      </p>
+      <p>
+        The work I care about most sits between teams: <b>cross-org platform design, mentorship, and driving product direction</b> from research to shipped result. I hold a B.S. in Computer Science and a minor in Business from the University of Texas at Austin.
+      </p>
+      <p>
+        Outside work I'm an avid sports enthusiast — soccer, basketball and football — with a passion for video games and cooking.
+      </p>
+      <ul class="skills" aria-label="Skills">
+        {skills.map((s) => <li><span>{s}</span></li>)}
+      </ul>
+    </div>
+  </div>
+</section>

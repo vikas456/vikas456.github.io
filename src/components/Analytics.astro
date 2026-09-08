@@ -1,0 +1,73 @@
+---
+import { GA_ID } from '../data/site';
+const gtagSrc = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+---
+<script async src={gtagSrc}></script>
+<script is:inline define:vars={{ GA_ID }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_ID, { anonymize_ip: true });
+</script>
+
+<script>
+  // Engagement logging: which sections get read, what gets clicked, who converts.
+  // Everything degrades silently if gtag is blocked by an ad blocker.
+  type Gtag = (...args: unknown[]) => void;
+  const track = (name: string, params: Record<string, unknown> = {}) => {
+    const g = (window as unknown as { gtag?: Gtag }).gtag;
+    if (typeof g === 'function') g('event', name, params);
+  };
+
+  // 1. Section impressions — how far down the page people actually get.
+  const seen = new Set<string>();
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
+  if ('IntersectionObserver' in window && sections.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const id = e.target.id;
+          if (e.isIntersecting && !seen.has(id)) {
+            seen.add(id);
+            track('section_view', { section_id: id });
+          }
+        }
+      },
+      { threshold: 0.35 },
+    );
+    sections.forEach((s) => io.observe(s));
+  }
+
+  // 2. Clicks — resume, email, outbound links, and which work item drew them.
+  document.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement | null)?.closest?.('a');
+    if (!(link instanceof HTMLAnchorElement)) return;
+
+    const href = link.getAttribute('href') ?? '';
+    const label = (link.dataset.track ?? link.textContent ?? '').trim().slice(0, 80);
+
+    if (href.startsWith('mailto:')) {
+      track('email_click', { link_label: label });
+    } else if (link.dataset.resume !== undefined) {
+      track('resume_click', { link_label: label });
+    } else if (/^https?:/.test(href) && !href.includes('vikasperaka.com')) {
+      track('outbound_click', { link_url: href, link_label: label });
+    } else if (href.startsWith('#')) {
+      track('nav_click', { section_id: href.slice(1) });
+    }
+  });
+
+  // 3. Contact form conversions.
+  document.addEventListener('contact:submit', ((e: Event) => {
+    track('contact_submit', { status: (e as CustomEvent<{ status: string }>).detail.status });
+  }) as EventListener);
+
+  // 4. Diagram engagement — proves the hero interaction is worth its bytes.
+  let diagramLogged = false;
+  document.addEventListener('reach:explore', ((e: Event) => {
+    if (diagramLogged) return;
+    diagramLogged = true;
+    track('reach_diagram_explore', { first_node: (e as CustomEvent<{ node: string }>).detail.node });
+  }) as EventListener);
+</script>

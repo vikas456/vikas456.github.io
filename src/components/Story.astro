@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+import { timeline } from '../data/content';
+---
+<section class="sec" id="story">
+  <div class="inner">
+    <div class="sec-head"><span class="lbl">02 — My Story</span><span class="rule"></span></div>
+    <h2 class="sr-only">My Story</h2>
+    <div class="tl">
+      {timeline.map((entry) => (
+        <article class="node">
+          <div class="when">{entry.when}</div>
+          <h3>
+            {entry.title}
+            {entry.badge && <span class="lead">{entry.badge}</span>}
+          </h3>
+          <div class="org">{entry.org}</div>
+          <ul>
+            {entry.bullets.map((b, i) => (
+              <li>
+                <Fragment set:html={b} />
+                {entry.source && i === entry.bullets.length - 1 && (
+                  <>
+                    {' '}
+                    <a class="src" href={entry.source.href} target="_blank" rel="noopener">
+                      {entry.source.label} <Icon name="arrow" size={10} />
+                    </a>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

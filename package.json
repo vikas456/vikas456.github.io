@@ -1,0 +1,26 @@
+{
+  "name": "vikasperaka-com",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal site for Vikas Peraka — vikasperaka.com",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/generate-assets.mjs && astro build",
+    "preview": "astro preview",
+    "assets": "node scripts/generate-assets.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.1"
+  },
+  "devDependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.1.0",
+    "@fontsource-variable/manrope": "^5.1.0",
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "sharp": "^0.35.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.0"
+  }
+}

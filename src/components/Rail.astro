@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import Actions from './Actions.astro';
+import portrait from '../assets/vikas-peraka.png';
+import { profile } from '../data/site';
+
+const nav = [
+  { id: 'about', label: 'About Me' },
+  { id: 'story', label: 'My Story' },
+  { id: 'portfolio', label: 'Portfolio' },
+  { id: 'contact', label: 'Contact' },
+];
+---
+<aside class="rail">
+  <div class="face">
+    <Image src={portrait} alt={`${profile.name}, ${profile.role}`}
+           width={132} height={132} quality={78} format="webp" loading="eager" id="avatar" />
+    <div>
+      <h1>{profile.name}</h1>
+      <p>{profile.role}</p>
+    </div>
+  </div>
+
+  <Actions context="rail" />
+
+  <nav class="rnav" aria-label="Sections">
+    {nav.map((item, i) => (
+      <a href={`#${item.id}`} class={i === 0 ? 'on' : undefined} data-nav={item.id}>
+        <i></i>{item.label}
+      </a>
+    ))}
+  </nav>
+
+  <div class="rail-spacer"></div>
+</aside>

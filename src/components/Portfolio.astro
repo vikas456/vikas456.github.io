@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+import WorkThumb from './WorkThumb.astro';
+import { work } from '../data/content';
+
+const chipClass = { accent: 'chip', revenue: 'chip rev', muted: 'chip side' } as const;
+---
+<section class="sec" id="portfolio">
+  <div class="inner">
+    <div class="sec-head"><span class="lbl">03 — Portfolio</span><span class="rule"></span></div>
+    <h2>Selected work</h2>
+    <div class="cards">
+      {work.map((item) => (
+        <article class={item.featured ? 'card feat' : 'card'}>
+          <WorkThumb slug={item.slug} alt={item.imageAlt} featured={item.featured} />
+          <div class="card-body">
+            <div class="card-top">
+              <h3>{item.title}</h3>
+              <span class={chipClass[item.chipTone]}>{item.chip}</span>
+            </div>
+            <p>{item.body}</p>
+            {item.impact && <div class="impact">{item.impact}</div>}
+            <a class="src" href={item.source.href} target="_blank" rel="noopener">
+              {item.source.label} <Icon name="arrow" size={10} />
+            </a>
+            <div class="stack">
+              {item.stack.map((s) => <span>{s}</span>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

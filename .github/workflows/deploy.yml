@@ -1,0 +1,55 @@
+# Deploys the site to GitHub Pages.
+#
+# NOT LIVE YET — ON PURPOSE.
+# There is no `push:` trigger, so nothing deploys automatically. The site can
+# only be published by running this workflow by hand from the Actions tab.
+#
+# To go live later:
+#   1. Merge `redesign` into `master`.
+#   2. Repo Settings → Pages → Source: change "Deploy from a branch" to
+#      "GitHub Actions". (Until this is changed, Pages keeps serving the old
+#      site from the master branch and this workflow has no effect.)
+#   3. Actions → "Deploy site" → Run workflow.
+#   4. Once you are happy, uncomment the `push:` block below so every commit
+#      to master publishes automatically.
+
+name: Deploy site
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

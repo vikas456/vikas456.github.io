@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Actions from '../components/Actions.astro';
+import { profile } from '../data/site';
+---
+<Base title="Page not found — Vikas Peraka" description="That page doesn't exist. Head back to vikasperaka.com." noindex>
+  <main class="notfound" id="main">
+    <p class="lbl">Error 404</p>
+    <h1>This page went to a different team.</h1>
+    <p class="nf-sub">
+      The link is broken or the page has moved. Everything about {profile.name} — the story,
+      the work, and how to get in touch — is one click away.
+    </p>
+    <a class="act pri nf-home" href="/">Back to the homepage</a>
+    <div class="nf-actions"><Actions context="footer" /></div>
+  </main>
+</Base>
+
+<style>
+  .notfound {
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 26px;
+  }
+  .notfound h1 {
+    font-size: clamp(30px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+  .nf-sub { color: var(--txt); font-size: 16px; max-width: 52ch; }
+  .nf-home { align-self: flex-start; height: 46px; margin-top: 6px; }
+  .nf-actions { margin-top: 14px; }
+</style>
