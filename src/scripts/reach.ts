@@ -16,6 +16,8 @@ interface Placed {
   /** Vertical offset of the label from the node centre, in world units. */
   labelDy: number;
   colour: string;
+  /** Rendered label width in screen px. Fixed font size, so zoom does not change it. */
+  labelWidth: number;
   nodeIndex: number;
   /** null for a product, otherwise the index of the project within it. */
   childIndex: number | null;
@@ -82,7 +84,7 @@ export function initReachDiagram(nodes: ReachNode[]): void {
 
       items.push({
         x: px, y: py, r: 26, label: n.label, align: 'center', labelDy: 42,
-        colour, nodeIndex: i, childIndex: null,
+        colour, labelWidth: 0, nodeIndex: i, childIndex: null,
       });
 
       // Fan the projects away from the centre, flattened vertically.
@@ -99,10 +101,33 @@ export function initReachDiagram(nodes: ReachNode[]): void {
           label: child.label,
           align: Math.cos(a) < 0 ? 'right' : 'left',
           labelDy: 0,
-          colour, nodeIndex: i, childIndex: ci,
+          colour, labelWidth: 0, nodeIndex: i, childIndex: ci,
         });
       });
     });
+  }
+
+  function measureLabels(): void {
+    for (const it of items) {
+      ctx!.font = it.childIndex === null ? PRODUCT_FONT : CHILD_FONT;
+      it.labelWidth = ctx!.measureText(it.label).width;
+    }
+  }
+
+  /** Screen-space rectangle of an item's label, or null when it is not drawn. */
+  function labelRect(it: Placed): { x0: number; y0: number; x1: number; y1: number } | null {
+    if (it.childIndex !== null && !showChildLabels() && (hovered ?? pinned) !== it) return null;
+    const p = toScreen(it);
+    const lw = it.labelWidth;
+    const pad = 5;
+    if (it.align === 'center') {
+      const ly = p.y + it.labelDy * k();
+      return { x0: p.x - lw / 2 - pad, y0: ly - 9, x1: p.x + lw / 2 + pad, y1: ly + 9 };
+    }
+    const off = Math.max(6, (it.r * 1.5 + 10) * k());
+    return it.align === 'right'
+      ? { x0: p.x - off - lw - pad, y0: p.y - 9, x1: p.x - off + pad, y1: p.y + 9 }
+      : { x0: p.x + off - pad, y0: p.y - 9, x1: p.x + off + lw + pad, y1: p.y + 9 };
   }
 
   /**
@@ -322,7 +347,15 @@ export function initReachDiagram(nodes: ReachNode[]): void {
       const d = Math.hypot(mx - p.x, my - p.y);
       // Generous target for the small project dots.
       const reach = it.childIndex === null ? Math.max(20, it.r * k()) : Math.max(15, it.r * k() + 10);
-      if (d < reach && d < bestD) { bestD = d; best = it; }
+      if (d < reach && d < bestD) { bestD = d; best = it; return; }
+
+      // The label is part of the target — people aim at the words, not the dot.
+      const rect = labelRect(it);
+      if (!rect) return;
+      if (mx >= rect.x0 && mx <= rect.x1 && my >= rect.y0 && my <= rect.y1) {
+        const ld = Math.hypot(mx - (rect.x0 + rect.x1) / 2, my - (rect.y0 + rect.y1) / 2);
+        if (ld < bestD) { bestD = ld; best = it; }
+      }
     });
     return best;
   }
@@ -436,9 +469,10 @@ export function initReachDiagram(nodes: ReachNode[]): void {
 
   window.addEventListener('resize', resize);
   layout();
+  measureLabels();
   resize();
   canvas.style.cursor = 'grab';
   // Re-measure once webfonts land, since the fit depends on label widths.
-  document.fonts?.ready.then(() => computeFit());
+  document.fonts?.ready.then(() => { measureLabels(); computeFit(); });
   requestAnimationFrame(draw);
 }
