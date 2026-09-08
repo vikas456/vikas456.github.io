@@ -364,7 +364,7 @@ section{scroll-margin-top:24px}
 .hero-title{
   font-size:clamp(21px,2.5vw,31px); font-weight:700; letter-spacing:-.03em; line-height:1.18;
   font-family:"Bricolage Grotesque Variable","Manrope Variable",sans-serif; color:var(--txt);
-  margin:0; text-wrap:balance; max-width:30ch;
+  margin:0; text-wrap:balance; max-width:34ch;
 }
 .hero-title .g{
   background:linear-gradient(96deg,var(--gold),#FFD9A8 55%,var(--gold));
