@@ -40,6 +40,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Contact form delivery. Add this under
+          # Settings -> Secrets and variables -> Actions -> New repository secret.
+          # If the secret is absent the build still succeeds and the form falls
+          # back to opening the visitor's mail client.
+          PUBLIC_WEB3FORMS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
