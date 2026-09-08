@@ -4,6 +4,8 @@ export const profile = {
   name: 'Vikas Peraka',
   role: 'Full-stack Software Engineer at Meta',
   location: 'San Francisco, CA',
+  // Recruiters filter on work authorisation, so state it plainly.
+  citizenship: 'US Citizen',
   email: 'vikas.peraka@gmail.com',
   // Keep in sync with the tagline in Hero.astro.
   tagline: 'Software used by a billion people. Growth work that moves revenue.',
