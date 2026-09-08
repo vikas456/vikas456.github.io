@@ -89,6 +89,16 @@ grep -o 'data-endpoint="[^"]*"' dist/index.html
 
 `web3forms` means real delivery; `mailto` means the key was missing at build time.
 
+### When the monthly quota runs out
+
+The free tier allows 250 submissions a month. If a submission comes back over
+quota (HTTP 429, or a message naming the limit), the form hides itself and an
+"email me" panel takes its place, so nobody types into something that cannot
+deliver. That decision is remembered in `localStorage` for 24 hours, then the
+form is tried again.
+
+To hide the form deliberately, build with `PUBLIC_CONTACT_FORM=off`.
+
 Spam protection: a honeypot field plus Web3Forms' own filtering. Submissions that
 trip the honeypot are silently accepted and discarded so bots learn nothing.
 

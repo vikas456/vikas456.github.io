@@ -1,6 +1,6 @@
 ---
 import Actions from './Actions.astro';
-import { profile, WEB3FORMS_KEY } from '../data/site';
+import { profile, WEB3FORMS_KEY, CONTACT_FORM_ENABLED } from '../data/site';
 const hasFormService = WEB3FORMS_KEY.length > 0;
 ---
 <section class="sec" id="contact">
@@ -12,7 +12,8 @@ const hasFormService = WEB3FORMS_KEY.length > 0;
     </p>
 
     <div class="contact-grid">
-      <form class="form" id="contact-form" novalidate data-endpoint={hasFormService ? 'web3forms' : 'mailto'}>
+      <form class="form" id="contact-form" novalidate hidden={!CONTACT_FORM_ENABLED}
+            data-endpoint={hasFormService ? 'web3forms' : 'mailto'}>
         <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
         <input type="hidden" name="subject" value="New message from vikasperaka.com" />
         {/* Honeypot: real people never see it, bots fill it in and get dropped. */}
@@ -37,6 +38,13 @@ const hasFormService = WEB3FORMS_KEY.length > 0;
         <button class="btn pri" type="submit">Send message</button>
         <p id="cf-status" role="status"></p>
       </form>
+
+      <!-- Shown instead of the form when the month's submission quota is spent,
+           so nobody is left typing into something that cannot deliver. -->
+      <div class="form-closed" id="contact-closed" hidden={CONTACT_FORM_ENABLED}>
+        <p>The contact form is resting for now &mdash; email reaches me just as well.</p>
+        <a class="act pri" href={`mailto:${profile.email}`} data-track="email-contact-fallback">Email me</a>
+      </div>
     </div>
   </div>
 </section>

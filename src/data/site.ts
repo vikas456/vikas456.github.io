@@ -50,3 +50,14 @@ export const GA_ID = 'G-35Y4X5T43C';
  * so the page never presents a send button that silently drops messages.
  */
 export const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+
+/**
+ * Kill switch for the contact form. Set to false (or PUBLIC_CONTACT_FORM=off)
+ * to replace it with the email fallback — useful if the month's Web3Forms
+ * submission quota is spent and you would rather not show a form at all.
+ *
+ * The form also hides itself automatically when a submission comes back over
+ * quota; see src/scripts/contact.ts.
+ */
+export const CONTACT_FORM_ENABLED =
+  (import.meta.env.PUBLIC_CONTACT_FORM ?? 'on').toLowerCase() !== 'off';
