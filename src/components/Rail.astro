@@ -14,14 +14,13 @@ const nav = [
 <aside class="rail">
   <div class="face">
     <Image src={portrait} alt={`${profile.name}, ${profile.role}`}
-           width={132} height={132} quality={78} format="webp" loading="eager" id="avatar" />
-    <div>
+           width={208} height={208} quality={78} format="webp" loading="eager" id="avatar" />
+    <div class="face-text">
       <h1>{profile.name}</h1>
       <p>{profile.role}</p>
+      <p class="status"><i aria-hidden="true"></i>{profile.status}</p>
     </div>
   </div>
-
-  <p class="status"><i aria-hidden="true"></i>{profile.status}</p>
 
   <Actions context="rail" />
 
