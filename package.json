@@ -3,12 +3,13 @@
   "type": "module",
   "version": "2.0.0",
   "private": true,
-  "description": "Personal site for Vikas Peraka — vikasperaka.com",
+  "description": "Personal site for Vikas Peraka \u2014 vikasperaka.com",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/generate-assets.mjs && astro build",
+    "build": "node scripts/generate-assets.mjs && node scripts/generate-bot-context.mjs && astro build",
     "preview": "astro preview",
-    "assets": "node scripts/generate-assets.mjs"
+    "assets": "node scripts/generate-assets.mjs",
+    "bot:context": "node scripts/generate-bot-context.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

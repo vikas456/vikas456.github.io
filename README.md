@@ -136,3 +136,57 @@ screen readers.
 
 `public/CNAME` preserves the custom domain, and GitHub Pages continues to serve
 it over HTTPS.
+
+## Chatbot
+
+A panel widget (bottom right) answers visitors' questions about Vikas. The API
+key cannot live in a static site, so requests go through a Cloudflare Worker in
+`worker/` which holds the key and proxies to Claude.
+
+### How the knowledge base works
+
+`scripts/generate-bot-context.mjs` builds `worker/src/context.generated.ts` from:
+
+- `src/data/content.ts` and `src/data/site.ts` — the site's own facts, so the bot
+  can never contradict the page. Edit the timeline and the bot updates.
+- `content/bio-source.md` — the résumé and a LinkedIn snapshot, which live
+  nowhere else. **LinkedIn is auth-walled and cannot be fetched**, so that section
+  is a manual copy; refresh it when the profile changes.
+
+The whole corpus is about 2,300 tokens, small enough to sit in the system prompt.
+There is no vector database and no retrieval step — that would be slower and less
+accurate at this size.
+
+It regenerates on every `npm run build`; run it alone with `npm run bot:context`.
+
+### Guardrails
+
+The system prompt in `worker/src/index.ts` forbids answering from anything but the
+supplied context and tells the model to say it does not know rather than infer.
+The Worker also caps output at 400 tokens, truncates questions to 600 characters,
+keeps only the last 12 turns, and restricts origins to vikasperaka.com.
+
+**The real spending ceiling is the cap set on the Anthropic account**, not the
+Worker. Set one.
+
+### Deploying the Worker
+
+```bash
+cd worker
+npm install
+npx wrangler login
+npx wrangler secret put ANTHROPIC_API_KEY   # paste the key when prompted
+npx wrangler deploy
+```
+
+Then add the deployed URL as a `PUBLIC_CHAT_ENDPOINT` repository secret. Until
+that secret exists the widget is not rendered at all, so the site is safe to
+deploy without it.
+
+Optional per-IP rate limiting (25 messages/hour):
+
+```bash
+cd worker
+npx wrangler kv namespace create RATE   # then uncomment [[kv_namespaces]] in wrangler.toml with the id
+npx wrangler deploy
+```

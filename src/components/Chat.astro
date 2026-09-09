@@ -1,0 +1,53 @@
+---
+import { profile } from '../data/site';
+
+/**
+ * Chat widget. Renders closed on the server and is opened by chat.ts, so the
+ * page's first paint is never blocked by it and it degrades to nothing if the
+ * script fails.
+ *
+ * The endpoint is public by design — it holds no secret. The API key lives in
+ * the Cloudflare Worker; see worker/src/index.ts.
+ */
+const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? '';
+// Without a backend the widget would only be able to apologise, so it is not
+// rendered at all. Set PUBLIC_CHAT_ENDPOINT and it appears on the next build.
+const enabled = endpoint.startsWith('https://');
+---
+{enabled && (
+<div id="chat" class="chat" data-endpoint={endpoint}>
+  <button class="chat-bubble" id="chat-open" aria-label="Ask a question about Vikas" aria-expanded="false">
+    <img src="/favicon-96.png" alt="" width="58" height="58" />
+    <span class="chat-ping" aria-hidden="true"></span>
+  </button>
+
+  <section class="chat-panel" id="chat-panel" role="dialog" aria-label="Ask about Vikas" hidden>
+    <header class="chat-head">
+      <img class="chat-av" src="/favicon-96.png" alt="" width="34" height="34" />
+      <div>
+        <h2>Ask about {profile.name.split(' ')[0]}</h2>
+        <p><i aria-hidden="true"></i>Custom-built &middot; usually instant</p>
+      </div>
+      <button class="chat-x" id="chat-close" aria-label="Minimise chat">&minus;</button>
+    </header>
+
+    <p class="chat-wip">
+      <b>Side project, actively being developed</b> &mdash; answers may not be accurate.
+    </p>
+
+    <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-atomic="false"></div>
+
+    <form class="chat-composer" id="chat-form">
+      <label class="sr-only" for="chat-input">Your question</label>
+      <input id="chat-input" name="q" type="text" autocomplete="off"
+             placeholder="Ask a question…" maxlength="600" />
+      <button type="submit" id="chat-send" aria-label="Send">&uarr;</button>
+    </form>
+  </section>
+</div>
+)}
+
+<script>
+  import { initChat } from '../scripts/chat';
+  initChat();
+</script>
