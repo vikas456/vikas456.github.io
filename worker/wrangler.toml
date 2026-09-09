@@ -2,13 +2,12 @@ name = "vikasperaka-chat"
 main = "src/index.ts"
 compatibility_date = "2026-01-01"
 
-# Per-IP rate limiting. Create with:
-#   npx wrangler kv namespace create RATE
-# then paste the returned id below. The Worker runs without it — rate limiting
-# is simply skipped — so this can be added later.
-# [[kv_namespaces]]
-# binding = "RATE"
-# id = "paste-the-id-here"
+# Per-IP rate limiting: 25 messages per hour. The Worker still runs if this is
+# removed — rate limiting is simply skipped — but the real spending ceiling is
+# the cap set on the Anthropic account, not this.
+[[kv_namespaces]]
+binding = "RATE"
+id = "c565a67821504e3490083ff120ac3ee7"
 
 [observability]
 enabled = true

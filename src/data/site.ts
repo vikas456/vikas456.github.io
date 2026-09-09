@@ -50,6 +50,14 @@ export const seo = {
   ],
 } as const;
 
+/**
+ * Chat widget backend — the Cloudflare Worker in worker/. This URL holds no
+ * secret (the API key lives in the Worker), so it is committed rather than kept
+ * as a build secret. Override with PUBLIC_CHAT_ENDPOINT when testing locally.
+ */
+export const CHAT_ENDPOINT =
+  import.meta.env.PUBLIC_CHAT_ENDPOINT ?? 'https://vikasperaka-chat.vikasperaka-chat.workers.dev';
+
 /** GA4 property carried over from the previous site. */
 export const GA_ID = 'G-35Y4X5T43C';
 

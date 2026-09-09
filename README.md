@@ -167,7 +167,11 @@ The Worker also caps output at 400 tokens, truncates questions to 600 characters
 keeps only the last 12 turns, and restricts origins to vikasperaka.com.
 
 **The real spending ceiling is the cap set on the Anthropic account**, not the
-Worker. Set one.
+Worker — set one at console.anthropic.com under Billing → Limits.
+
+Verified behaviour: it refuses to guess at salary or whether Vikas is job
+hunting, declines off-topic requests, and answers in plain prose (the chat window
+renders text literally, so the prompt forbids markdown).
 
 ### Deploying the Worker
 
@@ -179,14 +183,15 @@ npx wrangler secret put ANTHROPIC_API_KEY   # paste the key when prompted
 npx wrangler deploy
 ```
 
-Then add the deployed URL as a `PUBLIC_CHAT_ENDPOINT` repository secret. Until
-that secret exists the widget is not rendered at all, so the site is safe to
-deploy without it.
+The deployed URL is `https://vikasperaka-chat.vikasperaka-chat.workers.dev`
+(the account subdomain happens to match the Worker name, hence the repetition).
+It is committed in `src/data/site.ts` rather than kept as a secret, because it
+holds nothing secret — the API key never leaves the Worker. Override it locally
+with `PUBLIC_CHAT_ENDPOINT` in `.env`.
 
-Optional per-IP rate limiting (25 messages/hour):
+The widget only renders when that value starts with `https://`, so blanking it
+removes the chatbot from the site entirely.
 
-```bash
-cd worker
-npx wrangler kv namespace create RATE   # then uncomment [[kv_namespaces]] in wrangler.toml with the id
-npx wrangler deploy
-```
+Per-IP rate limiting is live: 25 messages per hour, via the `RATE` KV namespace
+bound in `worker/wrangler.toml`. Removing the binding disables rate limiting but
+leaves the Worker running.

@@ -1,5 +1,5 @@
 ---
-import { profile } from '../data/site';
+import { profile, CHAT_ENDPOINT } from '../data/site';
 
 /**
  * Chat widget. Renders closed on the server and is opened by chat.ts, so the
@@ -9,7 +9,7 @@ import { profile } from '../data/site';
  * The endpoint is public by design — it holds no secret. The API key lives in
  * the Cloudflare Worker; see worker/src/index.ts.
  */
-const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? '';
+const endpoint = CHAT_ENDPOINT;
 // Without a backend the widget would only be able to apologise, so it is not
 // rendered at all. Set PUBLIC_CHAT_ENDPOINT and it appears on the next build.
 const enabled = endpoint.startsWith('https://');
