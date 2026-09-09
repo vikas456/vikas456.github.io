@@ -329,17 +329,119 @@ section{scroll-margin-top:24px}
 .field input::placeholder,.field textarea::placeholder{color:#4E586B}
 .field input:focus,.field textarea:focus{outline:none; border-color:var(--accent)}
 .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
-.site-foot{
-  margin-top:52px; padding-top:24px; border-top:1px solid var(--line);
-  display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+/* ================= FOOTER DECK ================= */
+.deck-wrap{position:relative; padding:56px 0 26px}
+/* ambient glow bleeding upward off the device */
+.deck-wrap::before{
+  content:""; position:absolute; left:6%; right:6%; bottom:22px; height:210px; pointer-events:none;
+  background:radial-gradient(ellipse 62% 100% at 50% 100%,
+    rgba(110,139,255,.28), rgba(110,139,255,.08) 45%, transparent 72%);
+  filter:blur(6px);
 }
-.site-foot .who{font-size:12.8px; color:var(--dim); line-height:1.6}
-.site-foot .who b{display:block; color:var(--txt); font-weight:700; font-size:13.5px}
-.site-foot .who > span{display:block}
-.site-foot .actions{flex:0 1 auto; max-width:100%}
-.site-foot .actions{align-items:center}
-.site-foot .act{flex:0 0 auto; min-width:0; height:44px}
-.site-foot .ico{flex:0 0 44px; width:44px; height:44px}
+.deck{
+  position:relative; border-radius:16px 16px 12px 12px; padding:20px;
+  background:linear-gradient(180deg,#20252E 0%,#171B22 8%,#14171D 55%,#0F1218 100%);
+  border:1px solid #2B323D; border-top-color:#3A4250;
+  box-shadow:0 26px 50px -18px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.07);
+  display:grid; grid-template-columns:auto 1fr auto; gap:22px; align-items:center;
+}
+.deck-strip{
+  position:absolute; left:20px; right:20px; top:7px; height:7px; border-radius:5px;
+  background:linear-gradient(180deg,#0C0F14,#161A21); border:1px solid #262C36;
+  display:flex; align-items:center; justify-content:flex-end; padding-right:8px;
+}
+.deck-strip i{width:5px; height:5px; border-radius:50%; background:var(--accent);
+  box-shadow:0 0 7px var(--accent); font-style:normal}
+
+/* ---- keycaps ---- */
+.deck-keys{display:grid; grid-template-columns:repeat(5,62px); grid-auto-rows:62px; gap:9px; margin-top:8px}
+.key{
+  --face:#2A313C; --side:#151920; --ink:#E7ECF5;
+  position:relative; border:0; border-radius:11px; cursor:pointer; padding:0;
+  font-family:inherit; color:var(--ink); text-decoration:none;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;
+  background:linear-gradient(180deg, color-mix(in srgb, var(--face) 100%, #fff 14%), var(--face) 62%);
+  box-shadow:0 6px 0 var(--side), 0 9px 14px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.22);
+  transform:translateY(0); transition:transform .08s ease, box-shadow .08s ease, filter .08s ease;
+}
+.key:hover{transform:translateY(3px); filter:brightness(1.07);
+  box-shadow:0 3px 0 var(--side), 0 5px 9px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.22)}
+.key:active{transform:translateY(6px);
+  box-shadow:0 0 0 var(--side), 0 2px 4px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.14)}
+.key:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.key-lbl{font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  line-height:1.15; text-align:center}
+.key svg{display:block; fill:currentColor}
+
+.key.resume{grid-column:1/3; grid-row:1/3; --face:#5B7CFF; --side:#2E3F8C; --ink:#08101F; border-radius:14px}
+.key.resume .key-lbl{font-size:14px; letter-spacing:.08em}
+.key-sub{font-size:9px; font-weight:700; opacity:.62; letter-spacing:.1em; text-transform:uppercase}
+.key.li{grid-column:3; grid-row:1; --face:#0A66C2; --side:#053866; --ink:#FFFFFF}
+.key.gh{grid-column:4; grid-row:1; --face:#20262E; --side:#0B0E12; --ink:#F4F7FB}
+.key.top{grid-column:5; grid-row:1; --face:#E4D8C2; --side:#8E846F; --ink:#1A1712}
+.key.top .key-lbl{font-size:8.6px; letter-spacing:.05em; line-height:1.28}
+.key.email{grid-column:3/6; grid-row:2; --face:#FFB86B; --side:#8C5F2C; --ink:#20150A}
+.key.email .key-lbl{font-size:13px; letter-spacing:.08em}
+
+/* ---- grille ---- */
+.deck-grille{
+  height:118px; border-radius:9px; margin-top:8px; border:1px solid #232935;
+  background:repeating-linear-gradient(180deg,#0B0E13 0 3px,#171C24 3px 8px);
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.85), inset 0 -1px 0 rgba(255,255,255,.05);
+}
+
+/* ---- CRT ---- */
+.deck-crt-case{
+  position:relative; width:196px; height:196px; border-radius:22px; padding:13px; margin-top:8px;
+  background:linear-gradient(180deg,#242A34,#12161C); border:1px solid #333B47;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09), 0 8px 18px rgba(0,0,0,.6);
+}
+.deck-crt-case .screw{position:absolute; width:9px; height:9px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#4A5464,#20262F); border:1px solid #10141A}
+.deck-crt-case .screw.a{left:8px; top:8px}   .deck-crt-case .screw.b{right:8px; top:8px}
+.deck-crt-case .screw.c{left:8px; bottom:8px} .deck-crt-case .screw.d{right:8px; bottom:8px}
+.deck-crt{
+  position:relative; width:100%; height:100%; border-radius:50%; overflow:hidden;
+  background:radial-gradient(circle at 50% 42%, #1B3A6B 0%, #0A1A33 55%, #050C18 100%);
+  border:1px solid #0B1220;
+  box-shadow:inset 0 0 26px rgba(110,139,255,.34), inset 0 0 60px rgba(0,0,0,.9),
+    0 0 22px rgba(110,139,255,.22);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:4px; text-align:center; padding:16px;
+}
+.deck-crt::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(180deg, rgba(0,0,0,.30) 0 1px, transparent 1px 3px)}
+.crt-name,.crt-role,.crt-cz{position:relative; z-index:1;
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace}
+.crt-name{font-size:13px; font-weight:600; color:#BBD4FF; letter-spacing:.02em;
+  text-shadow:0 0 8px rgba(110,139,255,.9)}
+.crt-role{font-size:8.5px; color:#7FA3E0; line-height:1.45; max-width:15ch;
+  text-shadow:0 0 6px rgba(110,139,255,.6)}
+.crt-cz{font-size:8.5px; letter-spacing:.14em; color:#8FE8C4; margin-top:3px;
+  text-shadow:0 0 6px rgba(79,214,160,.7)}
+
+.deck-info{display:none}
+.deck-info b{display:block; color:var(--bright); font-size:14px; font-weight:800}
+.deck-info span{display:block; font-size:12.8px; color:var(--dim); margin-top:3px}
+.deck-foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  font-size:11.5px; color:var(--dim); padding:14px 2px 0}
+
+/* Below this the chassis is not worth rendering: keys only, details as text. */
+@media (max-width:780px){
+  .deck-wrap{padding:34px 0 22px}
+  .deck-wrap::before{display:none}
+  .deck{background:none; border:0; box-shadow:none; padding:0; display:block}
+  .deck-strip,.deck-grille,.deck-crt-case{display:none}
+  .deck-keys{grid-template-columns:repeat(2,1fr); grid-auto-rows:60px; gap:10px; margin-top:0}
+  .key.resume{grid-column:1/3; grid-row:1}
+  .key.li{grid-column:1; grid-row:2}
+  .key.gh{grid-column:2; grid-row:2}
+  .key.top{grid-column:1; grid-row:3}
+  .key.email{grid-column:2; grid-row:3}
+  .key.top .key-lbl{font-size:10px; line-height:1.25}
+  .key.email .key-lbl{font-size:11px}
+  .deck-info{display:block; padding-top:20px; margin-top:20px; border-top:1px solid var(--line)}
+}
 
 @media (max-width:1000px){
   .shell{grid-template-columns:1fr}
@@ -405,9 +507,6 @@ section{scroll-margin-top:24px}
 
 /* Timeline entries are <article>, not <div>. */
 .tl > .node{position:relative; padding:0 0 30px 28px}
-
-/* Footer copyright sits under the role line. */
-.site-foot .who .copy{display:block; margin-top:2px; opacity:.75}
 
 /* Contact form status messages. */
 #cf-status{font-size:12.8px; margin-top:10px; min-height:1.2em; color:var(--dim)}

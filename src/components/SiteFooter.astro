@@ -1,14 +1,72 @@
 ---
-import Actions from './Actions.astro';
-import { profile } from '../data/site';
+import Icon from './Icon.astro';
+import { profile, links } from '../data/site';
+
 const year = new Date().getFullYear();
+
+/**
+ * Footer as a physical deck: keycaps on the left, a ventilation grille, and a
+ * CRT showing who you are. Below 780px the chassis is dropped entirely and only
+ * the keys survive, over the same details as plain text — a phone has no room
+ * for a 240px device and gains nothing from rendering one.
+ *
+ * Every key is a real link so it works without JS, is keyboard reachable, and
+ * is picked up by the click tracking in Analytics.astro. "Scroll to top" is an
+ * anchor to #top for the same reason; page.ts upgrades it to a smooth scroll.
+ */
 ---
-<footer class="site-foot">
-  <div class="who">
-    <b>{profile.name}</b>
-    <span>{profile.role} · {profile.location}</span>
-    <span>{profile.citizenship}</span>
-    <span class="copy">© {year}</span>
+<div class="deck-wrap">
+  <div class="deck">
+    <div class="deck-strip" aria-hidden="true"><i></i></div>
+
+    <nav class="deck-keys" aria-label="Links">
+      <a class="key resume" href={links.resume} target="_blank" rel="noopener"
+         data-resume data-track="resume-deck">
+        <span class="key-lbl">Resume</span>
+        <span class="key-sub">PDF</span>
+      </a>
+
+      <a class="key li" href={links.linkedin} target="_blank" rel="noopener"
+         aria-label={`${profile.name} on LinkedIn`} title="LinkedIn" data-track="linkedin-deck">
+        <Icon name="linkedin" size={22} />
+      </a>
+
+      <a class="key gh" href={links.github} target="_blank" rel="noopener"
+         aria-label={`${profile.name} on GitHub`} title="GitHub" data-track="github-deck">
+        <Icon name="github" size={22} />
+      </a>
+
+      <a class="key top" href="#top" data-track="scroll-to-top">
+        <span class="key-lbl">Scroll<br />to top</span>
+      </a>
+
+      <a class="key email" href={`mailto:${profile.email}`} data-track="email-deck">
+        <span class="key-lbl">Email</span>
+      </a>
+    </nav>
+
+    <div class="deck-grille" aria-hidden="true"></div>
+
+    <div class="deck-crt-case" aria-hidden="true">
+      <span class="screw a"></span><span class="screw b"></span>
+      <span class="screw c"></span><span class="screw d"></span>
+      <div class="deck-crt">
+        <span class="crt-name">{profile.name}</span>
+        <span class="crt-role">{profile.role}</span>
+        <span class="crt-cz">{profile.citizenship.toUpperCase()}</span>
+      </div>
+    </div>
   </div>
-  <Actions context="footer" />
-</footer>
+
+  <!-- Shown only once the chassis is dropped, so the CRT's content is never lost. -->
+  <div class="deck-info">
+    <b>{profile.name}</b>
+    <span>{profile.role} &middot; {profile.location}</span>
+    <span>{profile.citizenship}</span>
+  </div>
+
+  <div class="deck-foot">
+    <span>&copy; {year} {profile.name}</span>
+    <span>{profile.location}</span>
+  </div>
+</div>
