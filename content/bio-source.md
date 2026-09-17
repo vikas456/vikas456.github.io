@@ -59,8 +59,14 @@ React.js, PHP, Java, Python, HTML/CSS, Jest, Hack, GraphQL, SQL, JavaScript,
 GitHub, Automated Testing, Deltoid, Experimentation, Agile/Scrum, Git.
 
 PERSONAL PROJECTS
-- Redraft — web app showing how well each NFL draft pick over the last ten years
-  fared by fantasy points (HTML, CSS, React.js).
+- Waiver (fantasywaiverpicks.com) — ranks fantasy football free agents for the
+  rest of the season. Models receptions, yards, carries and touchdowns separately
+  with XGBoost over nflverse play-by-play, simulates each remaining week
+  thousands of times for calibrated floors and ceilings, and publishes a weekly
+  scorecard grading its own past picks against real results. Backtested against
+  a trailing four-game average, the season average and raw volume; rebuilt three
+  times a week by GitHub Actions. Python, XGBoost, scikit-learn, pandas.
+  Source: github.com/vikas456/waiver.
 - Tower Titans — UI for a Java-based block-stacking game.
 - UTEats — site showing which campus cafes are currently open; peaked at 200 DAU
   (React.js, Python, Flask).
